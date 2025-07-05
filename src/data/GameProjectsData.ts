@@ -33,6 +33,7 @@ function getProject1(): ProjectData {
         </div>
         `,
     "#23bd69",
+    true,
     true
   );
 }
@@ -196,8 +197,8 @@ function getProject5(): ProjectData {
 
 export default [
   getProject1(),
-  getProject2(),
-  getProject3(),
-  getProject4(),
-  getProject5(),
+  // getProject2(),
+  // getProject3(),
+  // getProject4(),
+  // getProject5(),
 ];
