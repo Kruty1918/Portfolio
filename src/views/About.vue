@@ -4,21 +4,25 @@
 
     <div class="paragraph">
       <div>
-        I'm <strong>John Matrix</strong>, a former Delta Force operative, now a hobbyist lumberjack.<br/>
-        I spend my days living alone with my daughter Jenny, and cutting trees and carrying trunks around to keep in shape.
+        I'm <strong>Oleksiy Gavrilyuk</strong>, also known as <strong>Kruty1918</strong> — a solo game developer from Ukraine.
       </div>
 
-      <div style="margin-top: 20px;">I've worked on  <router-link to="/game-projects">stuff</router-link>, on <router-link to="/other-projects">other stuff</router-link>, and took part in <router-link to="/resume">a few things</router-link> as well.</div>
+      <div style="margin-top: 20px;">
+        I create PC and mobile games to express ideas and reflect on the real world through gameplay.
+        My work often touches on history, identity, and the meaning of war.
+      </div>
 
-      <div style="margin-top: 40px;">I'm <strong>currently looking for a job</strong> as a monk, like my good friend John Rambo did a few years back. You can reach me at <a href="mailto:johnmatrix@deltaforce.us">johnmatrix@deltaforce.us</a> or <router-link to="/contact">through here</router-link>.</div>
+      <div style="margin-top: 40px;">
+        You can explore my <router-link to="/game-projects">games</router-link>, other <router-link to="/other-projects">projects</router-link>, or view my <router-link to="/resume">experience</router-link>.
+        Feel free to <router-link to="/contact">reach out</router-link> or email me at <a href="mailto:kruty1918.dev@gmail.com">kruty1918.dev@gmail.com</a>.
+      </div>
     </div>
 
     <div class="photo">
-      <img src="img/avatar.png" alt="Avatar of John" /> 
+      <img src="img/avatar.png" alt="Avatar of Oleksiy" />
     </div>
 
-    <div style="clear:both"></div>
-
+    <div style="clear: both;"></div>
   </div>
 </template>
 
@@ -33,7 +37,7 @@
   text-align: center;
 }
 
-@media only screen and (min-width: 620px){
+@media only screen and (min-width: 620px) {
   .paragraph {
     float: left;
   }
@@ -44,5 +48,4 @@
     padding-left: 80px;
   }
 }
-
 </style>
