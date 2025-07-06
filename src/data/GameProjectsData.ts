@@ -1,4 +1,4 @@
-import ProjectData from "@/data/ProjectData";
+import ProjectData from "./ProjectData";
 
 function getProject1(): ProjectData {
   return new ProjectData(
@@ -31,7 +31,23 @@ function getProject1(): ProjectData {
     true,
     true,
     "video/project_01-video.mp4",
-    "Це підпис під відео, який буде показано під YouTube iframe."
+    [
+      {
+        url: "https://youtube.com/@Kruty1918-channel",
+        label: "YouTube",
+        iconClass: "fa fa-youtube-play",
+      },
+      {
+        url: "https://kruty1918.itch.io/scary-guy",
+        label: "Itch.io",
+        iconClass: "fa fa-gamepad", // найближчий варіант
+      },
+      // {
+      //   url: "https://github.com/Kruty1918",
+      //   label: "GitHub",
+      //   iconClass: "fa fa-github",
+      // },
+    ]
   );
 }
 

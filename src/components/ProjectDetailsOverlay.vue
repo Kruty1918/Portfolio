@@ -7,6 +7,23 @@
       </h1>
       <div class="dialog-content">
         <div v-html="htmlContent"></div>
+
+        <!-- Список лінків -->
+        <div v-if="links.length" class="links-section">
+          <div class="links-header">
+            <span class="links-title">Links</span>
+          </div>
+          <ul class="links-list">
+            <li v-for="link in links" :key="link.url" class="link-item">
+              <a :href="link.url" target="_blank" rel="noopener noreferrer">
+                <i v-if="link.iconClass" :class="link.iconClass + ' link-fa-icon'"></i>
+                {{ link.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Відео-підпис -->
         <div v-if="videoCaption" class="video-caption">
           {{ videoCaption }}
         </div>
@@ -17,29 +34,20 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { PropType } from "vue";
+import type Link from "@/data/Link";
 
 export default Vue.extend({
   name: "ProjectDetailsOverlay",
   props: {
-    visible: {
-      type: Boolean,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    htmlContent: {
-      type: String,
-      required: true,
-    },
-    color: {
-      type: String,
-      default: "#23bd69",
-    },
-    videoCaption: {
-      type: String,
-      default: "",
+    visible: { type: Boolean, required: true },
+    title: { type: String, required: true },
+    htmlContent: { type: String, required: true },
+    color: { type: String, default: "#23bd69" },
+    videoCaption: { type: String, default: "" },
+    links: {
+      type: Array as PropType<Link[]>,
+      default: () => [],
     },
   },
   methods: {
@@ -113,5 +121,54 @@ h1.dialog-title {
 
 .close-button:hover {
   color: #333;
+}
+
+/* Секція посилань */
+.links-section {
+  margin-top: 30px;
+}
+
+.links-header {
+  margin-bottom: 10px;
+  border-left: 4px solid var(--title-bg, #454b48);
+  padding-left: 10px;
+}
+
+.links-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Стиль списку лінків */
+.links-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.link-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #1d1d1d;
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.link-item a:hover {
+  background: #e0e0e0;
+}
+
+.link-fa-icon {
+  margin-right: 8px;
+  font-size: 16px;
+  vertical-align: middle;
 }
 </style>

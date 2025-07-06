@@ -1,3 +1,5 @@
+import Link from "./Link";
+
 export default class ProjectData {
   id: string;
   name: string;
@@ -7,7 +9,7 @@ export default class ProjectData {
   isWide: boolean;
   isHigh: boolean;
   accentColor: string;
-  videoCaption?: string; // Додаємо поле
+  links?: Link[];
 
   constructor(
     id: string,
@@ -18,7 +20,7 @@ export default class ProjectData {
     isHigh = false,
     isWide = false,
     previewVideoUrl?: string,
-    videoCaption?: string // Додаємо в конструктор
+    links?: Link[]
   ) {
     this.id = id;
     this.name = name;
@@ -28,6 +30,6 @@ export default class ProjectData {
     this.isWide = isWide;
     this.accentColor = accentColor;
     this.previewVideoUrl = previewVideoUrl;
-    this.videoCaption = videoCaption;
+    this.links = links;
   }
 }

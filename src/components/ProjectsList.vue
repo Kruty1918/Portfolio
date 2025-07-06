@@ -1,33 +1,32 @@
 <template>
   <div>
     <div class="projects-list">
-      <template v-for="project in projects">
-        <div :key="project.id" @click="showDetails(project)" class="project-item"
-          :class="{ 'wide': project.isWide, 'high': project.isHigh }">
-          <div class="project-item-image">
-            <video v-if="project.previewVideoUrl" class="preview-video" :src="project.previewVideoUrl" muted autoplay
-              loop playsinline @mouseenter="unmuteVideo($event)" @mouseleave="muteVideo($event)"></video>
-            <div v-else class="image-background" :style="{ backgroundImage: 'url(' + project.iconUrl + ')' }"></div>
-          </div>
+      <div v-for="project in projects" :key="project.id" @click="showDetails(project)" class="project-item"
+        :class="{ 'wide': project.isWide, 'high': project.isHigh }">
 
-          <div class="title-bar" :style="{ 'background-color': project.accentColor + 'DD' }">
-            <div class="title-text">
-              {{ project.name }}
-            </div>
-          </div>
+        <div class="project-item-image">
+          <video v-if="project.previewVideoUrl" class="preview-video" :src="project.previewVideoUrl" muted autoplay loop
+            playsinline @mouseenter="unmuteVideo($event)" @mouseleave="muteVideo($event)"></video>
+          <div v-else class="image-background" :style="{ backgroundImage: 'url(' + project.iconUrl + ')' }"></div>
         </div>
-      </template>
+
+        <div class="title-bar" :style="{ 'background-color': project.accentColor + 'DD' }">
+          <div class="title-text">{{ project.name }}</div>
+        </div>
+
+      </div>
     </div>
 
     <ProjectDetailsOverlay v-on:close="showPopup = false" :visible="showPopup" :title="popupTitle"
-      :htmlContent="popupContent" :color="popupColor" :videoCaption="popupVideoCaption" />
+      :htmlContent="popupContent" :color="popupColor" :videoCaption="popupVideoCaption" :links="popupLinks" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import ProjectDetailsOverlay from "@/components/ProjectDetailsOverlay.vue";
-import ProjectData from "@/data/ProjectData"; // без .ts
+import ProjectData from "@/data/ProjectData";
+import type Link from "@/data/Link";
 
 export default Vue.extend({
   name: "ProjectsList",
@@ -46,7 +45,8 @@ export default Vue.extend({
       popupTitle: "",
       popupColor: "",
       popupContent: "",
-      popupVideoCaption: "", // нове поле
+      popupVideoCaption: "",
+      popupLinks: [] as Link[],
     };
   },
   methods: {
@@ -54,7 +54,8 @@ export default Vue.extend({
       this.popupTitle = item.name;
       this.popupColor = item.accentColor;
       this.popupContent = item.htmlDescription;
-      this.popupVideoCaption = item.videoCaption || "";
+      this.popupVideoCaption = ""; // або item.videoCaption
+      this.popupLinks = item.links || [];
       this.showPopup = true;
       window.scrollTo(0, 0);
     },
@@ -103,7 +104,6 @@ export default Vue.extend({
   transform: scale(1.1);
 }
 
-
 .project-item:hover {
   filter: brightness(120%);
 }
@@ -117,6 +117,30 @@ export default Vue.extend({
 
 .title-text {
   padding: 10px;
+}
+
+/* Список посилань */
+.links-list {
+  margin: 10px 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.link-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.link-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
 }
 
 @media only screen and (min-width: 620px) {
