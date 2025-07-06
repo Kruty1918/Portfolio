@@ -3,21 +3,34 @@ import ProjectData from "@/data/ProjectData";
 function getProject1(): ProjectData {
   return new ProjectData(
     "project-1",
-    "Optimistic Chubby",
+    "Scary Guy",
     "img/projects/project-1-icon.png",
-    `
+    /* html */ `
       <div class="paragraph">
-        <strong>Optimistic Chubby</strong> is a thing of beauty that I am so proud of.
-        <br/>Image by <a href="https://www.pexels.com/fr-fr/@knownasovan" target="_blank">OVAN</a>.
+        <strong>Scary Guy</strong> is a short horror experience where you play as a night-shift cashier caught in the middle of a maniacal outbreak.
+      </div>
+      <div class="paragraph">
+        As you're heading to work, you encounter a corpse on the road surrounded by police. Soon after, a radio broadcast confirms that something terrible is happening.
+      </div>
+      <div class="paragraph">
+        You continue working your shift — until a suspicious police officer shows up. He warns you about a potential serial killer... and then disappears.
+      </div>
+      <div class="paragraph">
+        Moments later — things start to go terribly wrong.
       </div>
       <div class="paragraph center">
-        <iframe class="youtube" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <iframe
+          class="youtube"
+          src="https://www.youtube.com/embed/3j0k8ZDkiC8?start=10&autoplay=1&mute=1"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
       </div>
     `,
     "#23bd69",
     true,
     true,
-    "video/project_01-video.mp4" // <== це відео прев’ю
+    "video/project_01-video.mp4"
   );
 }
 
@@ -28,7 +41,7 @@ function getProject1(): ProjectData {
 //     "img/projects/project-2-icon.png",
 //     `
 //     <div class="paragraph">
-//         <strong>Optimistic Chubby Blog</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
+//         <strong>Scary Guy Blog</strong> is a thing of beauty that I am so proud of. I could write about it for hours.
 //         <br/>Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@adonyi-gabor-604571">Adonyi Gábor</a>.
 //     </div>
 //     <div class="paragraph center">
