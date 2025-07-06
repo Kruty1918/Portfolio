@@ -3,7 +3,7 @@
     <div class="nav-bar">
       <router-link to="/">About me</router-link>
       <router-link to="/game-projects">Games</router-link>
-      <router-link to="/other-projects">Other projects</router-link>
+      <!-- <router-link to="/other-projects">Other projects</router-link> -->
       <router-link to="/resume">Resume</router-link>
       <router-link to="/contact">Contact</router-link>
     </div>
@@ -22,7 +22,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="less">
-
 @import '../css/variables.less';
 
 .header {
@@ -49,7 +48,7 @@ a {
   border-bottom-width: 2px;
 }
 
-@media only screen and (max-width: 620px){
+@media only screen and (max-width: 620px) {
   .nav-bar {
     line-height: 2em;
   }
@@ -60,5 +59,4 @@ a {
     padding-bottom: 0px;
   }
 }
-
 </style>

@@ -72,6 +72,7 @@ export default Vue.extend({
 });
 </script>
 
+
 <style scoped>
 .project-item {
   height: 300px;
@@ -85,8 +86,8 @@ export default Vue.extend({
 .project-item-image {
   position: relative;
   width: 100%;
-  padding-top: 100%;
-  /* квадрат */
+  height: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
