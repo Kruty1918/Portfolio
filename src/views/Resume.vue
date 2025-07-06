@@ -3,24 +3,22 @@
     <h1>Resume</h1>
 
     <div class="paragraph">
-      I'm <strong>John Matrix</strong>, a former Delta Force operative with lots of experience, lots of training and huge muscles.
-      <br />After graduating from kindergarten, I've been enrolled in the army for 25 years, where I learned to destroy things in an amazing number of ways.
-      <br />I joined the Delta Force because I thought it was Greek lessons, but I quickly adapted to this unexpected environment and became a key element.
-      <br />I love teamwork, but I can also go in solo depending on the mission requirements.
+      My name is <strong>Oleksii Havryliuk</strong>, and I’m a game developer with over 7 years of experience working in Unity. I started when I was just 10 years old, and over the last 3 years I've gained hands-on commercial experience.
+      <br />I'm 17 years old, highly responsible, and passionate about technology. I spend over 10 hours a day working on projects, exploring new tools, and building things.
+      <br />I've taken part in several projects, including commercial ones with tight deadlines and real teamwork management.
       <br />
-      <br />Right now I'm trying to find inner peace after I've read some personal development books. I'm looking for a monk job so if you have any opportunity feel free to 
-      <router-link to="/contact">contact me</router-link>.
+      <br />I’m currently open to new opportunities and collaborations. If you're interested — feel free to <router-link to="/contact">get in touch</router-link>.
       <br />
-      <br />Besides war, I'm passionate about firearms, martial arts, explosions, push-ups and flowers.
-
+      <br />Besides game dev, I’m passionate about electronics, music, and learning new technologies.
+      
       <div style="margin-top:20px; margin-bottom:20px;">
-        <a class="download-link" href="d/resume-en.pdf" target="_blank"><i class="fa fa-download fa-lg fa-fw"></i> Download as PDF 🇬🇧</a>
-        <a class="download-link" href="d/cv-fr.pdf" target="_blank"><i class="fa fa-download fa-lg fa-fw"></i> Télécharger en PDF 🇫🇷</a>
+        <a class="download-link" href="d/resume-en.pdf" target="_blank"><i class="fa fa-download fa-lg fa-fw"></i> Download PDF</a>
         <div style="clear:both"></div>
       </div>
     </div>
+
     <div class="photo">
-      <img src="img/resume-photo.png" alt="Photo of John" />
+      <img src="img/resume-photo.png" alt="Photo of Oleksii" />
     </div>
 
     <div style="clear:both"></div>
@@ -28,78 +26,77 @@
     <div class="full-content">
       <h2>Work experience</h2>
 
-      <h3>Operation Classified - Delta Force</h3>
-      <h4>2018-2019</h4>
+      <h3>Fub and Ball – hybrid casual mobile game</h3>
+      <h4>2024</h4>
+      <div>Worked on gameplay logic, feedback systems, and general mechanics. Collaborated with a partner.</div>
+      <div class="tech-stack">Unity, C#, DOTween, ScriptableObject</div>
 
-      <div>It's classified so I can't speak about it.</div>
+      <h3>Commercial horror game project (10-day deadline)</h3>
+      <h4>2024</h4>
+      <div>Built a full horror game from scratch with a small team. Led the team and handled architecture and implementation.</div>
+      <div class="tech-stack">Unity, Zenject, DOTween, AI systems, project management</div>
 
-      <div class="tech-stack">Firearms, knives, grenades, Hummer vehicle, parachute,...</div>
-
-      <h3>Operation Classified - Delta Force</h3>
-      <h4>2015-2017</h4>
-
-      <div>It's classified so I can't speak about it.</div>
-
-      <div class="tech-stack">Even more Firearms, knives, grenades, Hummer vehicle, parachute,...</div>
-
-      <h3>Operation Classified - Delta Force</h3>
-      <h4>2012-2015</h4>
-
-      <div>It's classified so I can't speak about it.</div>
-
-      <div class="tech-stack">Firearms, knives, grenades, Hummer vehicle, parachute,...</div>
+      <h3>Story-based game about life and death</h3>
+      <h4>2024</h4>
+      <div>Ongoing project with a focus on narrative, emotional experience, and technical systems.</div>
+      <div class="tech-stack">Unity, ScriptableObject, Custom Dialogue System</div>
 
       <h2>Skills</h2>
 
       <div class="skill-set">
-        <h3>Lethal</h3>
-        <SkillRate name="Handguns" :rate="5" />
-        <SkillRate name="Rifles" :rate="5" />
-        <SkillRate name="Shotguns" :rate="5" />
-        <SkillRate name="Machineguns" :rate="5" />
-        <SkillRate name="Missile launchers" :rate="5" />
-        <SkillRate name="Knives" :rate="5" />
-        <SkillRate name="Hand to hand combat" :rate="5" />
+        <h3>Technical</h3>
+        <SkillRate name="Unity Engine" :rate="5" />
+        <SkillRate name="C#" :rate="5" />
+        <SkillRate name="DOTween" :rate="5" />
+        <SkillRate name="Zenject" :rate="4" />
+        <SkillRate name="ScriptableObject" :rate="5" />
+        <SkillRate name="2D World Generation" :rate="4" />
+        <SkillRate name="MonoSingletons" :rate="3" />
       </div>
 
       <div class="skill-set">
-        <h3>Non-lethal</h3>
-        <SkillRate name="Sneaking" :rate="1" />
-        <SkillRate name="Negotiation" :rate="1" />
-        <SkillRate name="Seduction" :rate="1" />
-        <SkillRate name="Sense of humor" :rate="2" />
+        <h3>Soft Skills</h3>
+        <SkillRate name="Communication" :rate="5" />
+        <SkillRate name="Responsibility" :rate="5" />
+        <SkillRate name="Team management" :rate="4" />
+        <SkillRate name="Project ownership" :rate="4" />
       </div>
       <div style="clear:both" />
 
       <h2>Education</h2>
 
-      <h3>Kindergarten - 1985</h3>
-      <h4>Kindergarten degree</h4>
-      <div>Specialty in bullying and fighting (58 wins, 58 K-O, 0 losses)</div>
+      <h3>Khmelnytskyi Lyceum #6 (Ukraine)</h3>
+      <h4>Grades 1–11</h4>
+
+      <h3>Am Wasserturm Schule, Grevesmühlen (Germany)</h3>
+      <h4>2.5 years</h4>
+
+      <h3>Berufsschule, Zierow (Germany)</h3>
+      <h4>1 year</h4>
+
+      <div>Planning to study at Design Schule in Schwerin.</div>
 
       <h2>Languages</h2>
 
-      <h3>American</h3>
-      <div>Basic knowledge but I know lots of one-liners</div>
+      <h3>Ukrainian</h3>
+      <div>Native</div>
 
-      <h3>That's it</h3>
-      <div>Who needs another language when you speak American?</div>
+      <h3>English</h3>
+      <div>Upper-Intermediate (B2)</div>
 
+      <h3>German</h3>
+      <div>Intermediate (B1)</div>
 
       <h2>Besides...</h2>
       <div>
-        <h3>I ❤️ Violence</h3>
-        <div>I find it really soothing to just shoot at bad guys</div>
+        <h3>💡 Technology</h3>
+        <div>I enjoy exploring new tools, game development patterns, and programming techniques.</div>
 
-        <h3>I 🧡 Sports</h3>
-        <div>I used to be thin but then I ingested 10 kilos of steroids and proteins a day while doing 1000 push-ups.</div>
+        <h3>🎸 Hobbies</h3>
+        <div>Music, playing instruments, soldering, electronics, and creative tech projects.</div>
 
-        <h3>I 💛 Politics</h3>
-        <div>I hope I can have a career here someday but I might have temper issues.</div>
-
-        <h3>I 💚 Flowers</h3>
-        <div>Especially the big ones, with the trunk and leaves.</div>
-
+        <h3>🧠 Self-learning</h3>
+        <div>I have no formal IT education — everything I know, I’ve learned through practice and real projects.</div>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
 
     <div class="paragraph">
       <div>
-        I'm <strong>Oleksiy Gavrilyuk</strong>, also known as <strong>Kruty1918</strong> — a solo game developer from Ukraine.
+        I'm <strong>Oleksii Havryliuk</strong>, also known as <strong>Kruty1918</strong> — a solo game developer from Ukraine.
       </div>
 
       <div style="margin-top: 20px;">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="photo">
-      <img src="img/avatar.png" alt="Avatar of Oleksiy" />
+      <img src="img/avatar.png" alt="Avatar of Oleksii" />
     </div>
 
     <div style="clear: both;"></div>

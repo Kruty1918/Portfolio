@@ -23,10 +23,10 @@
       <li>
         <i class="fa fa-linkedin fa-lg fa-fw" style="vertical-align: -5%;"></i>
         <a
-          href="https://www.linkedin.com/in/oleksiy-g-a0b8b8340?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+          href="https://www.linkedin.com/in/Oleksii-g-a0b8b8340?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
           target="_blank"
         >
-          linkedin.com/in/oleksiy-g
+          linkedin.com/in/Oleksii-g
         </a>
       </li>
       <li>
