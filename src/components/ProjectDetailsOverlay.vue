@@ -2,13 +2,15 @@
   <div class="overlay" v-if="visible" @click.self="close">
     <div class="dialog">
       <button class="close-button" @click="close">×</button>
-      <h1
-        class="dialog-title"
-        :style="{ '--title-bg': color || '#23bd69' }"
-      >
+      <h1 class="dialog-title" :style="{ '--title-bg': color || '#23bd69' }">
         {{ title }}
       </h1>
-      <div class="dialog-content" v-html="htmlContent"></div>
+      <div class="dialog-content">
+        <div v-html="htmlContent"></div>
+        <div v-if="videoCaption" class="video-caption">
+          {{ videoCaption }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -34,6 +36,10 @@ export default Vue.extend({
     color: {
       type: String,
       default: "#23bd69",
+    },
+    videoCaption: {
+      type: String,
+      default: "",
     },
   },
   methods: {
@@ -61,12 +67,12 @@ export default Vue.extend({
 }
 
 .dialog {
-  background-color: white; /* Білий фон */
+  background-color: white;
   color: #696969;
   border-radius: 4px;
   max-width: 700px;
   max-height: 90vh;
-  overflow-y: auto; /* Вертикальний скрол */
+  overflow-y: auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   padding-bottom: 10px;
   position: relative;
@@ -84,6 +90,13 @@ h1.dialog-title {
 
 .dialog-content {
   padding: 20px;
+}
+
+.video-caption {
+  margin-top: 16px;
+  font-style: italic;
+  color: #888;
+  text-align: center;
 }
 
 .close-button {

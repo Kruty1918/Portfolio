@@ -3,10 +3,11 @@ export default class ProjectData {
   name: string;
   htmlDescription: string;
   iconUrl: string;
-  previewVideoUrl?: string; // NEW: optional video preview
+  previewVideoUrl?: string;
   isWide: boolean;
   isHigh: boolean;
   accentColor: string;
+  videoCaption?: string; // Додаємо поле
 
   constructor(
     id: string,
@@ -16,7 +17,8 @@ export default class ProjectData {
     accentColor = "#000000",
     isHigh = false,
     isWide = false,
-    previewVideoUrl?: string // add it to constructor
+    previewVideoUrl?: string,
+    videoCaption?: string // Додаємо в конструктор
   ) {
     this.id = id;
     this.name = name;
@@ -26,5 +28,6 @@ export default class ProjectData {
     this.isWide = isWide;
     this.accentColor = accentColor;
     this.previewVideoUrl = previewVideoUrl;
+    this.videoCaption = videoCaption;
   }
 }

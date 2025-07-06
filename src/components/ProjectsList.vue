@@ -2,35 +2,15 @@
   <div>
     <div class="projects-list">
       <template v-for="project in projects">
-        <div
-          :key="project.id"
-          @click="showDetails(project)"
-          class="project-item"
-          :class="{ 'wide': project.isWide, 'high': project.isHigh }"
-        >
+        <div :key="project.id" @click="showDetails(project)" class="project-item"
+          :class="{ 'wide': project.isWide, 'high': project.isHigh }">
           <div class="project-item-image">
-            <video
-              v-if="project.previewVideoUrl"
-              class="preview-video"
-              :src="project.previewVideoUrl"
-              muted
-              autoplay
-              loop
-              playsinline
-              @mouseenter="unmuteVideo($event)"
-              @mouseleave="muteVideo($event)"
-            ></video>
-            <div
-              v-else
-              class="image-background"
-              :style="{ backgroundImage: 'url(' + project.iconUrl + ')' }"
-            ></div>
+            <video v-if="project.previewVideoUrl" class="preview-video" :src="project.previewVideoUrl" muted autoplay
+              loop playsinline @mouseenter="unmuteVideo($event)" @mouseleave="muteVideo($event)"></video>
+            <div v-else class="image-background" :style="{ backgroundImage: 'url(' + project.iconUrl + ')' }"></div>
           </div>
 
-          <div
-            class="title-bar"
-            :style="{ 'background-color': project.accentColor + 'DD' }"
-          >
+          <div class="title-bar" :style="{ 'background-color': project.accentColor + 'DD' }">
             <div class="title-text">
               {{ project.name }}
             </div>
@@ -39,20 +19,15 @@
       </template>
     </div>
 
-    <ProjectDetailsOverlay
-      v-on:close="showPopup = false"
-      :visible="showPopup"
-      :title="popupTitle"
-      :htmlContent="popupContent"
-      :color="popupColor"
-    />
+    <ProjectDetailsOverlay v-on:close="showPopup = false" :visible="showPopup" :title="popupTitle"
+      :htmlContent="popupContent" :color="popupColor" :videoCaption="popupVideoCaption" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import ProjectDetailsOverlay from "@/components/ProjectDetailsOverlay.vue";
-import ProjectData from "@/data/ProjectData.ts";
+import ProjectData from "@/data/ProjectData"; // без .ts
 
 export default Vue.extend({
   name: "ProjectsList",
@@ -60,7 +35,10 @@ export default Vue.extend({
     ProjectDetailsOverlay,
   },
   props: {
-    projects: Array,
+    projects: {
+      type: Array as () => ProjectData[],
+      required: true,
+    },
   },
   data() {
     return {
@@ -68,6 +46,7 @@ export default Vue.extend({
       popupTitle: "",
       popupColor: "",
       popupContent: "",
+      popupVideoCaption: "", // нове поле
     };
   },
   methods: {
@@ -75,6 +54,7 @@ export default Vue.extend({
       this.popupTitle = item.name;
       this.popupColor = item.accentColor;
       this.popupContent = item.htmlDescription;
+      this.popupVideoCaption = item.videoCaption || "";
       this.showPopup = true;
       window.scrollTo(0, 0);
     },
@@ -104,14 +84,17 @@ export default Vue.extend({
 .project-item-image {
   position: relative;
   width: 100%;
-  padding-top: 100%; /* квадрат */
+  padding-top: 100%;
+  /* квадрат */
   overflow: hidden;
 }
 
 .preview-video {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.2s ease;
 }
