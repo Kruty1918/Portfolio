@@ -1,20 +1,16 @@
 <template>
-  <transition name="fade">
-    <div v-if="visible">
-      <div class="overlay">
-      </div>
-      <div class="dialog" :style="{ 'background-color': color }">
-        <h1 class="dialog-title">{{ title }}</h1>
-        <div @click="$emit('close')" class="dialog-close"><i class="fa fa-times fa-lg fa-fw"></i></div>
-        <div class="dialog-content">
-          <div v-html="htmlContent"></div>
-          <div class="dialog-bottom">
-          <a @click="$emit('close')" class="dialog-close-button">Close</a>
-        </div>
-        </div>
-      </div>
+  <div class="overlay" v-if="visible" @click.self="close">
+    <div class="dialog">
+      <button class="close-button" @click="close">×</button>
+      <h1
+        class="dialog-title"
+        :style="{ '--title-bg': color || '#23bd69' }"
+      >
+        {{ title }}
+      </h1>
+      <div class="dialog-content" v-html="htmlContent"></div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script lang="ts">
@@ -23,99 +19,86 @@ import Vue from "vue";
 export default Vue.extend({
   name: "ProjectDetailsOverlay",
   props: {
-    visible: Boolean,
-    color: String,
-    title: String,
-    htmlContent: String,
+    visible: {
+      type: Boolean,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    htmlContent: {
+      type: String,
+      required: true,
+    },
+    color: {
+      type: String,
+      default: "#23bd69",
+    },
   },
   methods: {
-    getImage: function(url: string) {
-      console.log("fetching image " + url);
-    }
-  }
+    close() {
+      this.$emit("close");
+    },
+  },
 });
 </script>
 
 <style scoped>
 .overlay {
-  background-color: rgba(0,0,0,0.5);
-  z-index: 10;
-  position:fixed;
-  top:0px;
-  left:0px;
-  right:0px;
-  bottom: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 15px;
+  overflow-y: auto;
+  z-index: 1000;
 }
 
 .dialog {
-  position:absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 11;
-  margin: 20px;
+  background-color: white; /* Білий фон */
+  color: #696969;
+  border-radius: 4px;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto; /* Вертикальний скрол */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   padding-bottom: 10px;
-  color:white;
-}
-
-iframe {
+  position: relative;
   width: 100%;
 }
 
 h1.dialog-title {
-    text-align: center;
-    font-size: 1.3em;
-    margin: 0px;
-    padding: 22px;
+  background-color: var(--title-bg);
+  color: white;
+  margin: 0;
+  padding: 15px 20px;
+  font-weight: 500;
+  border-radius: 4px 4px 0 0;
 }
 
 .dialog-content {
   padding: 20px;
 }
 
-.dialog-content {
-  background-color: #fcfcfc;
-  color: #696969;
-}
-.dialog-close {
+.close-button {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor:pointer;
-  font-size: 1.2em;
-  font-weight: 100;
-}
-.dialog-close:hover {
-  opacity: 0.6;
-}
-
-.dialog-bottom {
-  text-align: center;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s ease;
 }
 
-a.dialog-close-button {
-  cursor:pointer;
-  font-size: 1.4em;
-  display: inline-block;
-  margin: 0 auto;
+.close-button:hover {
+  color: #333;
 }
-
-@media only screen and (min-width: 620px){
-  .dialog {
-    margin: 0 auto;
-    margin-top: 80px;
-    margin-bottom: 40px;
-    max-width: 1000px;
-  }
-
-  h1.dialog-title {
-    font-size: 1.6em;
-  }
-
-  .dialog-content {
-    padding: 40px;
-  }
-}
-
-
 </style>

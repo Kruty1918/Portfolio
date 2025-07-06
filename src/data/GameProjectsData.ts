@@ -27,7 +27,7 @@ function getProject1(): ProjectData {
         ></iframe>
       </div>
     `,
-    "#23bd69",
+    "#111024",
     true,
     true,
     "video/project_01-video.mp4"
